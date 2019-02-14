@@ -21,10 +21,8 @@ public class NyukaiApi {
     @RequestMapping(value = "/nyukai", method = RequestMethod.GET)
     public Map hello() {
 
-        NyukaiRequest nyukaiRequest = new NyukaiRequest("1");
+        nyukaiService.create();
 
-//        MemberId memberId = new MemberId("1");
-//        PassWord passWord = new PassWord("xyz");
 
         Map<String, MemberId> res = new HashMap<>();
         res.put("response", nyukaiRequest.getMemberIdForm().getValueObject());

@@ -6,4 +6,9 @@ public class CourseInfomation {
 
     private MemberId memberId;
     private Course course;
+
+    public CourseInfomation(MemberId memberId, Course course) {
+        this.memberId = memberId;
+        this.course = course;
+    }
 }
