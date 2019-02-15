@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import study02.nyukai_taikai.domain.account.MemberAccount;
 import study02.nyukai_taikai.domain.account.MemberAccountRepository;
-import study02.nyukai_taikai.domain.course.Course;
 import study02.nyukai_taikai.domain.course.CourseInfomation;
 import study02.nyukai_taikai.domain.course.CourseRepository;
 import study02.nyukai_taikai.domain.credit_card.CreditCard;
@@ -12,6 +11,7 @@ import study02.nyukai_taikai.domain.credit_card.CreditCardRepository;
 import study02.nyukai_taikai.domain.individual.Individual;
 import study02.nyukai_taikai.domain.individual.IndividualRepository;
 import study02.nyukai_taikai.domain.nyukai.MemberNyukai;
+import study02.nyukai_taikai.domain.nyukai.NyukaiApplication;
 import study02.nyukai_taikai.domain.nyukai.NyukaiApplyDate;
 import study02.nyukai_taikai.domain.nyukai.NyukaiRepository;
 
@@ -29,7 +29,7 @@ public class NyukaiService {
     @Autowired
     private NyukaiRepository nyukaiRepository;
 
-    public MemberAccount create() {
+    public MemberAccount create(NyukaiApplication nyukaiApplication) {
 
         // アカウント払い出し
         MemberAccount memberAccount = memberAccountRepository.issue();
