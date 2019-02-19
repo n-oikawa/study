@@ -4,10 +4,10 @@ import study02.nyukai_taikai.domain.member.MemberId;
 
 public class CreditCard {
 
-    private MemberId memberId;
-    private CreditCardNumber creditCardNumber;
-    private CreditCardExpirationDate creditCardExpirationDate;
-    private CreditCardSecurityCode creditCardSecurityCode;
+    private final MemberId memberId;
+    private final CreditCardNumber creditCardNumber;
+    private final CreditCardExpirationDate creditCardExpirationDate;
+    private final CreditCardSecurityCode creditCardSecurityCode;
 
     public CreditCard(
             MemberId memberId,

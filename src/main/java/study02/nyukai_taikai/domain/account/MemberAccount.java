@@ -4,8 +4,8 @@ import study02.nyukai_taikai.domain.member.MemberId;
 
 public class MemberAccount {
 
-    private MemberId memberId;
-    private PassWord passWord;
+    private final MemberId memberId;
+    private final PassWord passWord;
 
     public MemberAccount(MemberId memberId, PassWord passWord) {
         this.memberId = memberId;

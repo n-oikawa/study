@@ -38,11 +38,20 @@ public class NyukaiService {
         // アカウント払い出し
         MemberAccount memberAccount = memberAccountRepository.issue();
         // クレジットカードドメイン作成
-        CreditCard creditCard = creditCardRepository.create(memberAccount.getMemberId(), nyukaiApplication.getCreditCardApplication());
+        CreditCard creditCard = creditCardRepository.create(
+                memberAccount.getMemberId(),
+                nyukaiApplication.getCreditCardApplication()
+        );
         // 個人情報ドメイン作成
-        Individual individual = individualRepository.create(memberAccount.getMemberId(), nyukaiApplication.getIndividualApplication());
+        Individual individual = individualRepository.create(
+                memberAccount.getMemberId(),
+                nyukaiApplication.getIndividualApplication()
+        );
         // コースドメイン作成
-        CourseInfomation courseInfomation = courseRepository.create(memberAccount.getMemberId(), nyukaiApplication.getCourse());
+        CourseInfomation courseInfomation = courseRepository.create(
+                memberAccount.getMemberId(),
+                nyukaiApplication.getCourse()
+        );
 
         // 登録
         MemberNyukai memberNyukai = nyukaiRepository.create(

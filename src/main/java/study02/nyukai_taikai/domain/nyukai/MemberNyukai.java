@@ -9,13 +9,13 @@ import study02.nyukai_taikai.domain.member.MemberId;
 
 public class MemberNyukai {
 
-    private MemberId memberId;
-    private MemberAccount memberAccount;
-    private NyukaiApplyDate nyukaiApplyDate;
-    private NyukaiDate nyukaiDate;
-    private Individual individual;
-    private CreditCard creditCard;
-    private CourseInfomation courseInfomation;
+    private final MemberId memberId;
+    private final MemberAccount memberAccount;
+    private final NyukaiApplyDate nyukaiApplyDate;
+    private final NyukaiDate nyukaiDate;
+    private final Individual individual;
+    private final CreditCard creditCard;
+    private final CourseInfomation courseInfomation;
 
     public MemberNyukai(
             MemberId memberId,

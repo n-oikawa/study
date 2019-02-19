@@ -19,12 +19,12 @@ import study02.nyukai_taikai.domain.member.MemberMailAddress;
 
 public class NyukaiApplication {
     @Getter
-    private IndividualApplication individualApplication;
-    private MemberMailAddress memberMailAddress;
+    private final IndividualApplication individualApplication;
+    private final MemberMailAddress memberMailAddress;
     @Getter
-    private CreditCardApplication creditCardApplication;
+    private final CreditCardApplication creditCardApplication;
     @Getter
-    private Course course;
+    private final Course course;
 
 
     public NyukaiApplication(

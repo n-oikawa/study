@@ -4,15 +4,15 @@ import study02.nyukai_taikai.domain.member.MemberId;
 
 public class Individual {
 
-    private MemberId memberId;
-    private Name name;
-    private NameKana nameKana;
-    private Gender gender;
-    private Birthday birthday;
-    private PostalCode postalCode;
-    private StreetAddress streetAddress;
-    private PhoneNumber phoneNumber;
-    private ContactAddress contactAddress;
+    private final MemberId memberId;
+    private final Name name;
+    private final NameKana nameKana;
+    private final Gender gender;
+    private final Birthday birthday;
+    private final PostalCode postalCode;
+    private final StreetAddress streetAddress;
+    private final PhoneNumber phoneNumber;
+    private final ContactAddress contactAddress;
 
     public Individual(
             MemberId memberId,
