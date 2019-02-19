@@ -4,5 +4,5 @@ import study02.nyukai_taikai.domain.member.MemberId;
 
 public interface CreditCardRepository {
 
-    CreditCard create(MemberId memberId);
+    CreditCard create(MemberId memberId, CreditCardApplication creditCardApplication);
 }

@@ -7,8 +7,10 @@ import study02.nyukai_taikai.domain.account.MemberAccountRepository;
 import study02.nyukai_taikai.domain.course.CourseInfomation;
 import study02.nyukai_taikai.domain.course.CourseRepository;
 import study02.nyukai_taikai.domain.credit_card.CreditCard;
+import study02.nyukai_taikai.domain.credit_card.CreditCardApplication;
 import study02.nyukai_taikai.domain.credit_card.CreditCardRepository;
 import study02.nyukai_taikai.domain.individual.Individual;
+import study02.nyukai_taikai.domain.individual.IndividualApplication;
 import study02.nyukai_taikai.domain.individual.IndividualRepository;
 import study02.nyukai_taikai.domain.nyukai.MemberNyukai;
 import study02.nyukai_taikai.domain.nyukai.NyukaiApplication;
@@ -31,19 +33,16 @@ public class NyukaiService {
 
     public MemberAccount create(NyukaiApplication nyukaiApplication) {
 
+        // check
+        check(nyukaiApplication.getCreditCardApplication(), nyukaiApplication.getIndividualApplication());
         // アカウント払い出し
         MemberAccount memberAccount = memberAccountRepository.issue();
         // クレジットカードドメイン作成
-        CreditCard creditCard = creditCardRepository.create(memberAccount.getMemberId());
+        CreditCard creditCard = creditCardRepository.create(memberAccount.getMemberId(), nyukaiApplication.getCreditCardApplication());
         // 個人情報ドメイン作成
-        Individual individual = individualRepository.create(memberAccount.getMemberId());
+        Individual individual = individualRepository.create(memberAccount.getMemberId(), nyukaiApplication.getIndividualApplication());
         // コースドメイン作成
-        CourseInfomation courseInfomation = courseRepository.create(memberAccount.getMemberId());
-
-        // check
-        // クレジットカードチェック
-        // 個人情報チェック
-        check(creditCard, individual);
+        CourseInfomation courseInfomation = courseRepository.create(memberAccount.getMemberId(), nyukaiApplication.getCourse());
 
         // 登録
         MemberNyukai memberNyukai = nyukaiRepository.create(
@@ -60,7 +59,8 @@ public class NyukaiService {
         return memberAccount;
     }
 
-    private void check(CreditCard creditCard, Individual individual) {
-
+    private void check(CreditCardApplication creditCard, IndividualApplication individual) {
+        // クレジットカードチェック
+        // 個人情報チェック
     }
 }

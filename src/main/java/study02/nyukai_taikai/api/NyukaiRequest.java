@@ -32,10 +32,10 @@ public class NyukaiRequest {
 
     public NyukaiApplication create() {
         return new NyukaiApplication(
-                new Name(name),
-                new NameKana(nameKana),
-                Gender.MAN,
-                new Birthday(birthday),
+                new Name("太郎"),
+                new NameKana("たろう"),
+                new Gender("男"),
+                new Birthday("1999/01/01"),
                 new PostalCode(postalCode),
                 new StreetAddress(streetAddress),
                 new PhoneNumber(phoneNumber),

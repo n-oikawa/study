@@ -4,5 +4,5 @@ import study02.nyukai_taikai.domain.member.MemberId;
 
 public interface IndividualRepository {
 
-    Individual create(MemberId memberId);
+    Individual create(MemberId memberId, IndividualApplication individualApplication);
 }

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import study02.nyukai_taikai.domain.account.MemberAccount;
 import study02.nyukai_taikai.domain.nyukai.NyukaiApplication;
 import study02.nyukai_taikai.service.NyukaiService;
 
@@ -24,11 +25,11 @@ public class NyukaiApi {
         NyukaiRequest nyukaiRequest = new NyukaiRequest();
         NyukaiApplication nyukaiApplication = nyukaiRequest.create();
 
-        nyukaiService.create(nyukaiApplication);
+        MemberAccount memberAccount = nyukaiService.create(nyukaiApplication);
 
 
-        Map<String, String> res = new HashMap<>();
-        res.put("response", "ok");
+        Map<String, MemberAccount> res = new HashMap<>();
+        res.put("response", memberAccount);
         return res;
     }
 }
