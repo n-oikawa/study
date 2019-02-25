@@ -15,6 +15,9 @@ import study02.nyukai_taikai.domain.individual.StreetAddress;
 import study02.nyukai_taikai.domain.member.MemberMailAddress;
 import study02.nyukai_taikai.domain.nyukai.NyukaiApplication;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class NyukaiRequest {
 
     private String name;
@@ -35,15 +38,15 @@ public class NyukaiRequest {
                 new Name("太郎"),
                 new NameKana("たろう"),
                 new Gender("男"),
-                new Birthday("1999/01/01"),
+                new Birthday(LocalDate.parse("1999/01/01", DateTimeFormatter.ofPattern("yyyy/MM/dd"))),
                 new PostalCode(postalCode),
                 new StreetAddress(streetAddress),
                 new PhoneNumber(phoneNumber),
                 new ContactAddress(contactAddress),
                 new MemberMailAddress(memberMailAddress),
-                new CreditCardNumber(creditCardNumber),
-                new CreditCardExpirationDate(creditCardExpirationDate),
-                new CreditCardSecurityCode(creditCardSecurityCode)
+                new CreditCardNumber("123456789012"),
+                new CreditCardExpirationDate("203001"),
+                new CreditCardSecurityCode("0123")
         );
     }
 }

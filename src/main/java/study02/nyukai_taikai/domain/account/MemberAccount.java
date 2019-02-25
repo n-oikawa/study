@@ -1,25 +1,18 @@
 package study02.nyukai_taikai.domain.account;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 import study02.nyukai_taikai.domain.member.MemberId;
 
+@RequiredArgsConstructor
+@EqualsAndHashCode
+@ToString(includeFieldNames = false)
 public class MemberAccount {
 
+    @Getter
     private final MemberId memberId;
+    @Getter
     private final PassWord passWord;
-
-    public MemberAccount(MemberId memberId, PassWord passWord) {
-        this.memberId = memberId;
-        this.passWord = passWord;
-    }
-
-    public MemberAccount get() {
-        return new MemberAccount(
-                memberId,
-                passWord
-        );
-    }
-
-    public MemberId getMemberId() {
-        return memberId;
-    }
 }

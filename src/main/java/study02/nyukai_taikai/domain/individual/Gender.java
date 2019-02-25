@@ -1,12 +1,16 @@
 package study02.nyukai_taikai.domain.individual;
 
-import org.omg.CORBA.UNKNOWN;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
+@RequiredArgsConstructor
+@EqualsAndHashCode
+@ToString(includeFieldNames = false)
 public class Gender {
 
+    @Getter
     private final String value;
 
-    public Gender(String value) {
-        this.value = value;
-    }
 }

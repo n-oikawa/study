@@ -3,9 +3,11 @@ package study02.nyukai_taikai.domain.individual;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 @RequiredArgsConstructor
 @EqualsAndHashCode
+@ToString(includeFieldNames = false)
 public class IndividualApplication {
 
     @Getter
@@ -25,4 +27,11 @@ public class IndividualApplication {
     @Getter
     private final ContactAddress contactAddress;
 
+    public boolean isTwentyYearsOld() {
+        return birthday.isTwentyYearsOld();
+    }
+
+    public boolean isNotTwentyYearsOld() {
+        return !isTwentyYearsOld();
+    }
 }

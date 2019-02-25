@@ -1,6 +1,9 @@
 package study02.nyukai_taikai.domain.nyukai;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 import study02.nyukai_taikai.domain.course.Course;
 import study02.nyukai_taikai.domain.credit_card.CreditCardApplication;
 import study02.nyukai_taikai.domain.credit_card.CreditCardExpirationDate;

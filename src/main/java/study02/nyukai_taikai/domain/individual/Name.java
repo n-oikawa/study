@@ -1,10 +1,15 @@
 package study02.nyukai_taikai.domain.individual;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
+
+@RequiredArgsConstructor
+@EqualsAndHashCode
+@ToString(includeFieldNames = false)
 public class Name {
 
+    @Getter
     private final String value;
-
-    public Name(String value) {
-        this.value = value;
-    }
 }

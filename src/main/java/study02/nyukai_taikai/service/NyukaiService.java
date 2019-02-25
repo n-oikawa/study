@@ -2,6 +2,7 @@ package study02.nyukai_taikai.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import study02.nyukai_taikai.domain.CheckPolicy;
 import study02.nyukai_taikai.domain.account.MemberAccount;
 import study02.nyukai_taikai.domain.account.MemberAccountRepository;
 import study02.nyukai_taikai.domain.course.CourseInfomation;
@@ -15,7 +16,7 @@ import study02.nyukai_taikai.domain.individual.IndividualRepository;
 import study02.nyukai_taikai.domain.nyukai.MemberNyukai;
 import study02.nyukai_taikai.domain.nyukai.NyukaiApplication;
 import study02.nyukai_taikai.domain.nyukai.NyukaiApplyDate;
-import study02.nyukai_taikai.domain.nyukai.NyukaiRepository;
+import study02.nyukai_taikai.domain.nyukai.NyukaiMapper;
 
 @Service
 public class NyukaiService {
@@ -29,32 +30,40 @@ public class NyukaiService {
     @Autowired
     private CourseRepository courseRepository;
     @Autowired
-    private NyukaiRepository nyukaiRepository;
+    private NyukaiMapper nyukaiMapper;
 
-    public MemberAccount create(NyukaiApplication nyukaiApplication) {
+    public MemberNyukai create(NyukaiApplication nyukaiApplication) {
 
         // check
-        check(nyukaiApplication.getCreditCardApplication(), nyukaiApplication.getIndividualApplication());
+        CheckResult checkResult = check(
+                nyukaiApplication.getCreditCardApplication(),
+                nyukaiApplication.getIndividualApplication()
+        );
+
+        if (!checkResult.isOK()) {
+            throw new RuntimeException();
+        }
+
         // アカウント払い出し
         MemberAccount memberAccount = memberAccountRepository.issue();
         // クレジットカードドメイン作成
-        CreditCard creditCard = creditCardRepository.create(
+        CreditCard creditCard = creditCardRepository.save(
                 memberAccount.getMemberId(),
                 nyukaiApplication.getCreditCardApplication()
         );
         // 個人情報ドメイン作成
-        Individual individual = individualRepository.create(
+        Individual individual = individualRepository.save(
                 memberAccount.getMemberId(),
                 nyukaiApplication.getIndividualApplication()
         );
         // コースドメイン作成
-        CourseInfomation courseInfomation = courseRepository.create(
+        CourseInfomation courseInfomation = courseRepository.save(
                 memberAccount.getMemberId(),
                 nyukaiApplication.getCourse()
         );
 
         // 登録
-        MemberNyukai memberNyukai = nyukaiRepository.create(
+        MemberNyukai memberNyukai = new MemberNyukai(
                 memberAccount.getMemberId(),
                 memberAccount,
                 new NyukaiApplyDate("20190101"),
@@ -63,13 +72,18 @@ public class NyukaiService {
                 courseInfomation
         );
 
-        nyukaiRepository.register(memberNyukai);
+        nyukaiMapper.insert(memberNyukai.getMemberId().getValue());
 
-        return memberAccount;
+        return memberNyukai;
     }
 
-    private void check(CreditCardApplication creditCard, IndividualApplication individual) {
+    private CheckResult check(CreditCardApplication creditCard, IndividualApplication individual) {
+        CheckPolicy checkPolicy = new CheckPolicy(
+                creditCard,
+                individual
+        );
         // クレジットカードチェック
         // 個人情報チェック
+        return checkPolicy.isCheck();
     }
 }

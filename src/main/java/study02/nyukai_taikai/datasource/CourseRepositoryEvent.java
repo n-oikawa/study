@@ -9,7 +9,7 @@ import study02.nyukai_taikai.domain.member.MemberId;
 @Repository
 public class CourseRepositoryEvent implements CourseRepository {
 
-    public CourseInfomation create(MemberId memberId, Course course) {
+    public CourseInfomation save(MemberId memberId, Course course) {
         return new CourseInfomation(
                 memberId,
                 Course.BASIC
