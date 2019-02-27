@@ -1,10 +1,13 @@
 package study02.nyukai_taikai.domain.member;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@EqualsAndHashCode
 public class MemberMailAddress {
 
-    private String value;
-
-    public MemberMailAddress(String value) {
-        this.value = value;
-    }
+    @Getter
+    private final String value;
 }

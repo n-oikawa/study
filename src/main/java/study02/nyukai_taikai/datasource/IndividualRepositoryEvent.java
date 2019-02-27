@@ -12,6 +12,13 @@ public class IndividualRepositoryEvent implements IndividualRepository {
     @Autowired
     private IndividualMapper individualMapper;
 
+    public MemberId find(IndividualApplication individualApplication) {
+        return individualMapper.select(
+                individualApplication.getName().getValue(),
+                individualApplication.getNameKana().getValue()
+        );
+    }
+
     public void save(MemberId memberId, IndividualApplication individualApplication) {
 
         individualMapper.insert(

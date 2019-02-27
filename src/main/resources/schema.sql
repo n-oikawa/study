@@ -43,5 +43,9 @@ CREATE TABLE individual_event (
 DROP TABLE IF EXISTS nyukai_event;
 CREATE TABLE nyukai_event (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    member_id VARCHAR
+    member_id VARCHAR,
+    password VARCHAR,
+    apply_date VARCHAR,
+    mail_address VARCHAR,
+    system_date DATETIME
 );

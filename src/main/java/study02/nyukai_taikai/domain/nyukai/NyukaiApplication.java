@@ -23,6 +23,7 @@ import study02.nyukai_taikai.domain.member.MemberMailAddress;
 public class NyukaiApplication {
     @Getter
     private final IndividualApplication individualApplication;
+    @Getter
     private final MemberMailAddress memberMailAddress;
     @Getter
     private final CreditCardApplication creditCardApplication;

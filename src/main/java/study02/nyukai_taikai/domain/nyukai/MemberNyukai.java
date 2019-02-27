@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import study02.nyukai_taikai.domain.account.MemberAccount;
+import study02.nyukai_taikai.domain.member.MemberMailAddress;
 
 @RequiredArgsConstructor
 @EqualsAndHashCode
@@ -12,5 +13,8 @@ import study02.nyukai_taikai.domain.account.MemberAccount;
 public class MemberNyukai {
     @Getter
     private final MemberAccount memberAccount;
+    @Getter
     private final NyukaiApplyDate nyukaiApplyDate;
+    @Getter
+    private final MemberMailAddress memberMailAddress;
 }

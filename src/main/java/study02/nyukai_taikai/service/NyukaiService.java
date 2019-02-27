@@ -57,7 +57,11 @@ public class NyukaiService {
         courseRepository.save(memberId, nyukaiApplication.getCourse());
 
         // 登録
-        MemberNyukai memberNyukai = new MemberNyukai(memberAccount, nyukaiApplication.getNyukaiApplyDate());
+        MemberNyukai memberNyukai = new MemberNyukai(
+                memberAccount,
+                nyukaiApplication.getNyukaiApplyDate(),
+                nyukaiApplication.getMemberMailAddress()
+        );
         nyukaiRepository.save(memberNyukai);
 
         return memberNyukai;

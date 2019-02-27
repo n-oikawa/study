@@ -12,7 +12,11 @@ public class NyukaiRepositoryEvent implements NyukaiRepository {
     private NyukaiMapper nyukaiMapper;
 
     public void save(MemberNyukai memberNyukai) {
-        nyukaiMapper.insert(memberNyukai.getMemberAccount().getMemberId().getValue());
+        nyukaiMapper.insert(
+                memberNyukai.getMemberAccount().getMemberId().getValue(),
+                memberNyukai.getMemberAccount().getPassWord().getValue(),
+                memberNyukai.getNyukaiApplyDate().getValue(),
+                memberNyukai.getMemberMailAddress().getValue());
     }
 
 }
