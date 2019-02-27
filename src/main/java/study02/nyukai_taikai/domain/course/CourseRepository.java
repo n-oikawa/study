@@ -4,5 +4,5 @@ import study02.nyukai_taikai.domain.member.MemberId;
 
 public interface CourseRepository {
 
-    CourseInfomation save(MemberId memberId, Course course);
+    void save(MemberId memberId, Course course);
 }

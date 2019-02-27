@@ -19,6 +19,13 @@ CREATE TABLE credit_card_event (
     security_code VARCHAR(4)
 );
 
+DROP TABLE IF EXISTS course_event;
+CREATE TABLE course_event (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    member_id VARCHAR,
+    course VARCHAR
+);
+
 DROP TABLE IF EXISTS individual_event;
 CREATE TABLE individual_event (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -31,4 +38,10 @@ CREATE TABLE individual_event (
     street_address VARCHAR,
     phone_number VARCHAR(11),
     contact_address VARCHAR(11)
+);
+
+DROP TABLE IF EXISTS nyukai_event;
+CREATE TABLE nyukai_event (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    member_id VARCHAR
 );

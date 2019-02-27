@@ -28,6 +28,8 @@ public class NyukaiApplication {
     private final CreditCardApplication creditCardApplication;
     @Getter
     private final Course course;
+    @Getter
+    private final NyukaiApplyDate nyukaiApplyDate;
 
 
     public NyukaiApplication(
@@ -42,7 +44,8 @@ public class NyukaiApplication {
             MemberMailAddress memberMailAddress,
             CreditCardNumber creditCardNumber,
             CreditCardExpirationDate creditCardExpirationDate,
-            CreditCardSecurityCode creditCardSecurityCode) {
+            CreditCardSecurityCode creditCardSecurityCode,
+            NyukaiApplyDate nyukaiApplyDate) {
 
         this.individualApplication = new IndividualApplication(
                 name,
@@ -61,5 +64,6 @@ public class NyukaiApplication {
                 creditCardSecurityCode
         );
         this.course = Course.BASIC;
+        this.nyukaiApplyDate = nyukaiApplyDate;
     }
 }

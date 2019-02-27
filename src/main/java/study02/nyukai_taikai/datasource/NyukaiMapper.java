@@ -1,4 +1,4 @@
-package study02.nyukai_taikai.domain.nyukai;
+package study02.nyukai_taikai.datasource;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;

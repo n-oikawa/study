@@ -14,6 +14,7 @@ import study02.nyukai_taikai.domain.individual.PostalCode;
 import study02.nyukai_taikai.domain.individual.StreetAddress;
 import study02.nyukai_taikai.domain.member.MemberMailAddress;
 import study02.nyukai_taikai.domain.nyukai.NyukaiApplication;
+import study02.nyukai_taikai.domain.nyukai.NyukaiApplyDate;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -32,6 +33,7 @@ public class NyukaiRequest {
     private String creditCardNumber;
     private String creditCardExpirationDate;
     private String creditCardSecurityCode;
+    private String NyukaiApplyDate;
 
     public NyukaiApplication create() {
         return new NyukaiApplication(
@@ -46,7 +48,8 @@ public class NyukaiRequest {
                 new MemberMailAddress(memberMailAddress),
                 new CreditCardNumber("123456789012"),
                 new CreditCardExpirationDate("203001"),
-                new CreditCardSecurityCode("0123")
+                new CreditCardSecurityCode("0123"),
+                new NyukaiApplyDate("20190101")
         );
     }
 }

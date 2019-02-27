@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
+import study02.nyukai_taikai.domain.SystemDate;
 
 @RequiredArgsConstructor
 @EqualsAndHashCode
@@ -27,11 +28,11 @@ public class IndividualApplication {
     @Getter
     private final ContactAddress contactAddress;
 
-    public boolean isTwentyYearsOld() {
-        return birthday.isTwentyYearsOld();
+    public boolean isTwentyYearsOld(SystemDate systemDate) {
+        return birthday.isTwentyYearsOld(systemDate);
     }
 
-    public boolean isNotTwentyYearsOld() {
-        return !isTwentyYearsOld();
+    public boolean isNotTwentyYearsOld(SystemDate systemDate) {
+        return !isTwentyYearsOld(systemDate);
     }
 }

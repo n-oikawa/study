@@ -3,6 +3,7 @@ package study02.nyukai_taikai.domain.individual;
 import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
+import study02.nyukai_taikai.domain.SystemDate;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -19,8 +20,7 @@ public class Birthday {
         return value.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
     }
 
-    public boolean isTwentyYearsOld() {
-
-        return ChronoUnit.YEARS.between(value, LocalDate.now()) >= 20;
+    public boolean isTwentyYearsOld(SystemDate systemDate) {
+        return ChronoUnit.YEARS.between(value, systemDate.getValue()) >= 20;
     }
 }
