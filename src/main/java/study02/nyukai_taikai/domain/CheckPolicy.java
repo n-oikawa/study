@@ -1,17 +1,11 @@
 package study02.nyukai_taikai.domain;
 
-import lombok.EqualsAndHashCode;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
 import study02.nyukai_taikai.domain.credit_card.CreditCardInquiry;
 import study02.nyukai_taikai.domain.individual.IndividualApplication;
 import study02.nyukai_taikai.service.CheckResult;
 
-@RequiredArgsConstructor
-@EqualsAndHashCode
-@ToString(includeFieldNames = false)
 public class CheckPolicy {
-    public static CheckResult check(
+    public static CheckResult judge(
             CreditCardInquiry creditCardInquiry,
             IndividualApplication individualApplication,
             SystemDate systemDate) {

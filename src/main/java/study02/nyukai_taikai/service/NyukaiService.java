@@ -35,7 +35,7 @@ public class NyukaiService {
         SystemDate systemDate = new SystemDate(LocalDate.now());
 
         // check
-        CheckResult checkResult = CheckPolicy.check(
+        CheckResult checkResult = CheckPolicy.judge(
                 creditCardRepository.find(nyukaiApplication.getCreditCardApplication()),
                 nyukaiApplication.getIndividualApplication(),
                 systemDate
