@@ -1,0 +1,94 @@
+@startuml
+
+package domain {
+
+  package 登録用紙 {
+    class 三択問題登録用紙 implements クイズ登録用紙 {
+      - 問題文
+      - 選択肢A
+      - 選択肢B
+      - 選択肢C
+      - 正解選択肢
+      - 解説
+    }
+  }
+
+  class クイズリスト {
+    List<クイズ>
+    クイズ ランダムで一つ取得する()
+  }
+  class "クイズ\n<Entity>" as クイズ {
+  }
+  class クイズRepository {
+    + クイズリスト クイズ一覧を参照する()
+    + クイズ 問題からクイズを参照する(問題)
+  }
+  クイズRepository --> クイズリスト
+  クイズリスト --> クイズ
+'  クイズ -- ジャンル
+
+  package 問題 as toi_package {
+    class "三択問題\n<Entity>" as 三択問題 implements 問題 {
+    }
+    interface 選択肢 {
+    }
+    class 選択肢A implements 選択肢 {
+    }
+    class 選択肢B implements 選択肢 {
+    }
+    class 選択肢C implements 選択肢 {
+    }
+    class 三択問題Repository {
+      void 三択問題を登録する(三択問題)
+    }
+    三択問題 -- 問題文
+    三択問題 -- 選択肢A
+    三択問題 -- 選択肢B
+    三択問題 -- 選択肢C
+    三択問題Repository --u-> 三択問題
+  }
+  package 回答 as kaito_package {
+    class "三択回答\n<Entity>" as 三択回答 implements 回答 {
+      正解選択肢
+      解説
+      回答結果 回答と選択肢が合っているか確認する(選択肢)
+    }
+    enum 回答結果 {
+      正解
+      不正解
+    }
+    class 三択回答Repository {
+      + void 回答を登録する(三択回答)
+      + 三択回答 クイズの回答を参照する(クイズ)
+    }
+
+/'    class 回答履歴登録Repository {
+      + void 回答履歴を登録する(選択肢, 回答)
+    }
+'/
+    三択回答 --> 回答結果
+    三択回答Repository --> 回答
+'    回答履歴登録Repository --> 回答
+  }
+/'
+  package 正解率 as seikai_ritu {
+    class クイズ正解率Repository {
+      + 正解率 正解率を参照する(クイズ)
+    }
+
+    クイズ正解率Repository --> 正解率
+  }
+'/
+  クイズ --> 問題
+  クイズ --> 回答
+  クイズ --> 三択回答Repository
+  選択肢 --> 三択回答
+'  クイズ --> クイズ正解率Repository
+'  回答履歴登録Repository --> 選択肢
+
+  三択問題登録用紙 --> 三択問題
+  三択問題登録用紙 --> 三択回答
+
+}
+
+@enduml
