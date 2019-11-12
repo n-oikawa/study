@@ -6,6 +6,6 @@ import study02.quiz_game.domain.ThreeChoiceQuizChoice;
 
 @AllArgsConstructor
 public class ThreeChoiceQuizChoiceB {
-
+    @Getter
     private final ThreeChoiceQuizChoice value;
 }

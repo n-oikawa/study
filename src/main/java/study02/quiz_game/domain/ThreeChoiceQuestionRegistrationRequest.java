@@ -14,23 +14,23 @@ import study02.quiz_game.domain.question.ThreeChoiceQuizQuestion;
 @AllArgsConstructor
 public class ThreeChoiceQuestionRegistrationRequest {
 
-    private final String threeChoiceQuestion;
-    private final String threeChoiceA;
-    private final String threeChoiceB;
-    private final String threeChoiceC;
-    private final String answerChoice;
-    private final String explanation;
+    private final String threeChoiceQuestion = "及川は今何歳？";
+    private final String threeChoiceA = "32歳";
+    private final String threeChoiceB = "33歳";
+    private final String threeChoiceC = "34歳";
+    private final String answerChoice = "33歳";
+    private final String explanation = "解説";
 
     public ThreeChoiceQuestionRegistrationApplication create() {
         return new ThreeChoiceQuestionRegistrationApplication(
                 new ThreeChoiceQuizQuestion(
                         new Question(threeChoiceQuestion),
-                        new ThreeChoiceQuizChoiceA(threeChoiceA),
-                        new ThreeChoiceQuizChoiceB(threeChoiceB),
-                        new ThreeChoiceQuizChoiceC(threeChoiceC)
+                        new ThreeChoiceQuizChoiceA(new ThreeChoiceQuizChoice(threeChoiceA)),
+                        new ThreeChoiceQuizChoiceB(new ThreeChoiceQuizChoice(threeChoiceB)),
+                        new ThreeChoiceQuizChoiceC(new ThreeChoiceQuizChoice(threeChoiceC))
                 ),
                 new ThreeChoiceQuizAnswer(
-                        new CorrectAnswerChoice(answerChoice),
+                        new CorrectAnswerChoice(new ThreeChoiceQuizChoice(answerChoice)),
                         new Explanation(explanation)
                 )
         );

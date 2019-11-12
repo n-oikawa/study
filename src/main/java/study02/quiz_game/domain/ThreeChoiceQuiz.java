@@ -7,6 +7,7 @@ import study02.quiz_game.domain.question.ThreeChoiceQuizQuestion;
 
 @AllArgsConstructor
 public class ThreeChoiceQuiz {
+    @Getter
     private final ThreeChoiceQuizNumber quizNumber;
     @Getter
     private final ThreeChoiceQuizQuestion question;

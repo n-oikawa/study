@@ -49,3 +49,16 @@ CREATE TABLE nyukai_event (
     mail_address VARCHAR,
     system_date DATETIME
 );
+
+DROP TABLE IF EXISTS three_choice_quiz_event;
+CREATE TABLE three_choice_quiz_event (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    three_choice_quiz_number INTEGER ,
+    question VARCHAR ,
+    three_choice_quiz_choice_a VARCHAR ,
+    three_choice_quiz_choice_b VARCHAR ,
+    three_choice_quiz_choice_c VARCHAR ,
+    connect_answer_choice VARCHAR ,
+    explanation VARCHAR ,
+    system_date DATETIME
+)
