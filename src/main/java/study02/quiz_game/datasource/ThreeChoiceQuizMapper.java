@@ -3,9 +3,16 @@ package study02.quiz_game.datasource;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface ThreeChoiceQuizMapper {
+
+    @Insert("INSERT INTO three_choice_quiz_sequence (system_date) VALUES (sysdate)")
+    void issue();
+
+    @Select("SELECT id FROM three_choice_quiz_sequence")
+    int find();
 
     @Insert(
             "INSERT INTO three_choice_quiz_event (" +

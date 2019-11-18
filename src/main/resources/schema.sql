@@ -50,6 +50,12 @@ CREATE TABLE nyukai_event (
     system_date DATETIME
 );
 
+DROP TABLE IF EXISTS three_choice_quiz_sequence;
+CREATE TABLE three_choice_quiz_sequence (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    system_date DATETIME
+);
+
 DROP TABLE IF EXISTS three_choice_quiz_event;
 CREATE TABLE three_choice_quiz_event (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -61,4 +67,4 @@ CREATE TABLE three_choice_quiz_event (
     connect_answer_choice VARCHAR ,
     explanation VARCHAR ,
     system_date DATETIME
-)
+);

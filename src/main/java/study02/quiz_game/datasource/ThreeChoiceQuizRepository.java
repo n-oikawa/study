@@ -15,7 +15,8 @@ public class ThreeChoiceQuizRepository implements IThreeChoiceQuizRepository {
     @Override
     public ThreeChoiceQuizNumber assignment() {
         // 番号払い出し
-        return new ThreeChoiceQuizNumber(1);
+        threeChoiceQuizMapper.issue();
+        return new ThreeChoiceQuizNumber(threeChoiceQuizMapper.find());
     }
 
     @Override
