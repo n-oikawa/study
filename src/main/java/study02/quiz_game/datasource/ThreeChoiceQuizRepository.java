@@ -3,6 +3,7 @@ package study02.quiz_game.datasource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import study02.quiz_game.domain.IThreeChoiceQuizRepository;
+import study02.quiz_game.domain.ThreeChoiceQuiz;
 import study02.quiz_game.domain.ThreeChoiceQuizNumber;
 import study02.quiz_game.domain.question.ThreeChoiceQuestionInfomation;
 
@@ -19,18 +20,16 @@ public class ThreeChoiceQuizRepository implements IThreeChoiceQuizRepository {
     }
 
     @Override
-    public void register(
-            ThreeChoiceQuizNumber threeChoiceQuizNumber,
-            ThreeChoiceQuestionInfomation threeChoiceQuestionInfomation) {
+    public void register(ThreeChoiceQuiz threeChoiceQuiz) {
         // 永続化
         threeChoiceQuizMapper.insert(
-                threeChoiceQuizNumber.getValue(),
-                threeChoiceQuestionInfomation.getQuestion().getValue(),
-                threeChoiceQuestionInfomation.getThreeChoiceQuizChoiceA().getValue().getValue(),
-                threeChoiceQuestionInfomation.getThreeChoiceQuizChoiceB().getValue().getValue(),
-                threeChoiceQuestionInfomation.getThreeChoiceQuizChoiceC().getValue().getValue(),
-                threeChoiceQuestionInfomation.getAnswer().getValue().getValue(),
-                threeChoiceQuestionInfomation.getExplanation().getValue()
+                threeChoiceQuiz.getQuizNumber().getValue(),
+                threeChoiceQuiz.getThreeChoiceQuestionInfomation().getQuestion().getValue(),
+                threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizChoiceA().getValue().getValue(),
+                threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizChoiceB().getValue().getValue(),
+                threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizChoiceC().getValue().getValue(),
+                threeChoiceQuiz.getThreeChoiceQuestionInfomation().getAnswer().getValue().getValue(),
+                threeChoiceQuiz.getThreeChoiceQuestionInfomation().getExplanation().getValue()
         );
     }
 
