@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 import study02.quiz_game.domain.IThreeChoiceQuizRepository;
 import study02.quiz_game.domain.ThreeChoiceQuiz;
 import study02.quiz_game.domain.ThreeChoiceQuizNumber;
-import study02.quiz_game.domain.question.ThreeChoiceQuestionInfomation;
 
 @Repository
 public class ThreeChoiceQuizRepository implements IThreeChoiceQuizRepository {
