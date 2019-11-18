@@ -3,14 +3,44 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>INDEX</title>
+    <title>クイズ登録画面</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
           th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>クイズ</h1>
-<a th:href="@{/three-choice-quiz/register}" class="btn btn-info">クイズ登録画面</a>
+<h1>クイズ登録画面</h1>
+<!--<a th:href="@{/three-choice-quiz/register}" class="btn btn-info">クイズ登録画面</a>-->
 
+<form method="post" action="/three-choice-quiz/register" th:action="@{/three-choice-quiz/register}" th:object="${threeChoiceQuestionRegistrationRequest}">
+    <table class="table table-bordered">
+        <tr>
+            <td><label>問題文</label></td>
+            <td><input type="text" name="threeChoiceQuestion" th:value="及川の年齢は何歳？" /></td>
+        </tr>
+        <tr>
+            <td><label>選択肢A</label></td>
+            <td><input type="text" name="threeChoiceA" th:value="32才" /></td>
+        </tr>
+        <tr>
+            <td><label>選択肢B</label></td>
+            <td><input type="text" name="threeChoiceB" th:value="33才" /></td>
+        </tr>
+        <tr>
+            <td><label>選択肢C</label></td>
+            <td><input type="text" name="threeChoiceC" th:value="34才" /></td>
+        </tr>
+        <tr>
+            <td><label>回答選択肢</label></td>
+            <td><input type="text" name="answerChoice" th:value="33才" /></td>
+        </tr>
+        <tr>
+            <td><label>解説</label></td>
+            <td><input type="text" name="explanation" th:value="解説" /></td>
+        </tr>
+    </table>
+
+    <input type="submit" th:value="登録" class="btn btn-info"/>
+</form>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
         th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
