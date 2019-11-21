@@ -2,7 +2,6 @@ package study02.quiz_game.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import study02.quiz_game.domain.question.ThreeChoiceQuestionInfomation;
 
 @AllArgsConstructor
 public class ThreeChoiceQuiz {

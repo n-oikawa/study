@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import study02.quiz_game.domain.IThreeChoiceQuizRepository;
 import study02.quiz_game.domain.ThreeChoiceQuiz;
 import study02.quiz_game.domain.ThreeChoiceQuizNumber;
-import study02.quiz_game.domain.question.ThreeChoiceQuestionInfomation;
+import study02.quiz_game.domain.ThreeChoiceQuestionInfomation;
 
 @Service
 public class ThreeChoiceQuizService {
