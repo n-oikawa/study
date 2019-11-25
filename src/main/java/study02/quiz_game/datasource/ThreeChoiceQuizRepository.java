@@ -25,10 +25,10 @@ public class ThreeChoiceQuizRepository implements IThreeChoiceQuizRepository {
         threeChoiceQuizMapper.insert(
                 threeChoiceQuiz.getQuizNumber().getValue(),
                 threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizQuestion().getQuestion().getValue(),
-                threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizQuestion().getThreeChoiceQuizChoiceA().getValue().getValue(),
-                threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizQuestion().getThreeChoiceQuizChoiceB().getValue().getValue(),
-                threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizQuestion().getThreeChoiceQuizChoiceC().getValue().getValue(),
-                threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizAnswer().getCorrectAnswerChoice().getValue().getValue(),
+                threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizQuestion().getThreeChoiceQuizChoices().get(0).getValue(),
+                threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizQuestion().getThreeChoiceQuizChoices().get(1).getValue(),
+                threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizQuestion().getThreeChoiceQuizChoices().get(2).getValue(),
+                threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizAnswer().getThreeChoiceQuizChoice().getValue(),
                 threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizAnswer().getExplanation().getValue()
         );
     }

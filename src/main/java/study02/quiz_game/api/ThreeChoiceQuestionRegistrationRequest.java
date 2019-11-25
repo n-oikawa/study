@@ -9,6 +9,9 @@ import study02.quiz_game.domain.answer.Explanation;
 import study02.quiz_game.domain.answer.ThreeChoiceQuizAnswer;
 import study02.quiz_game.domain.question.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ThreeChoiceQuestionRegistrationRequest {
     @Getter
     @Setter
@@ -30,15 +33,19 @@ public class ThreeChoiceQuestionRegistrationRequest {
     private String explanation;
 
     public ThreeChoiceQuestionInfomation create() {
+
+        List<ThreeChoiceQuizChoice> list = new ArrayList<>();
+        list.add(new ThreeChoiceQuizChoice(threeChoiceA));
+        list.add(new ThreeChoiceQuizChoice(threeChoiceB));
+        list.add(new ThreeChoiceQuizChoice(threeChoiceC));
+
         return new ThreeChoiceQuestionInfomation(
                         new ThreeChoiceQuizQuestion(
                                 new Question(this.threeChoiceQuestion),
-                                new ThreeChoiceQuizChoiceA(new ThreeChoiceQuizChoice(threeChoiceA)),
-                                new ThreeChoiceQuizChoiceB(new ThreeChoiceQuizChoice(threeChoiceB)),
-                                new ThreeChoiceQuizChoiceC(new ThreeChoiceQuizChoice(threeChoiceC))
+                                list
                         ),
                         new ThreeChoiceQuizAnswer(
-                                new CorrectAnswerChoice(new ThreeChoiceQuizChoice(answerChoice)),
+                                new ThreeChoiceQuizChoice(answerChoice),
                                 new Explanation(explanation)
                         )
         );
