@@ -1,7 +1,9 @@
-package study02.quiz_game.domain;
+package study02.quiz_game.api;
 
 import lombok.Getter;
 import lombok.Setter;
+import study02.quiz_game.domain.ThreeChoiceQuestionInfomation;
+import study02.quiz_game.domain.ThreeChoiceQuizChoice;
 import study02.quiz_game.domain.answer.CorrectAnswerChoice;
 import study02.quiz_game.domain.answer.Explanation;
 import study02.quiz_game.domain.answer.ThreeChoiceQuizAnswer;
