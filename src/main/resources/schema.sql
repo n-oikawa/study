@@ -51,10 +51,8 @@ CREATE TABLE nyukai_event (
 );
 
 DROP TABLE IF EXISTS three_choice_quiz_sequence;
-CREATE TABLE three_choice_quiz_sequence (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    system_date DATETIME
-);
+CREATE TABLE three_choice_quiz_sequence (id INT NOT NULL);
+INSERT INTO three_choice_quiz_sequence VALUES (0);
 
 DROP TABLE IF EXISTS three_choice_quiz_event;
 CREATE TABLE three_choice_quiz_event (

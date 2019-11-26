@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface ThreeChoiceQuizMapper {
 
-    @Insert("INSERT INTO three_choice_quiz_sequence (system_date) VALUES (sysdate)")
+    @Insert("UPDATE three_choice_quiz_sequence SET id = (id + 1)")
     void issue();
 
     @Select("SELECT id FROM three_choice_quiz_sequence")
