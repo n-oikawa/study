@@ -3,14 +3,16 @@ package study02.quiz_game.api;
 import lombok.Getter;
 import lombok.Setter;
 import study02.quiz_game.domain.ThreeChoiceQuestionInfomation;
-import study02.quiz_game.domain.ThreeChoiceQuizChoice;
-import study02.quiz_game.domain.answer.CorrectAnswerChoice;
+import study02.quiz_game.domain.answer.CorrectAnswerJudgment;
 import study02.quiz_game.domain.answer.Explanation;
 import study02.quiz_game.domain.answer.ThreeChoiceQuizAnswer;
-import study02.quiz_game.domain.question.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import study02.quiz_game.domain.answer.ThreeChoiceQuizChoice;
+import study02.quiz_game.domain.answer.ThreeChoiceQuizSelectionItemA;
+import study02.quiz_game.domain.answer.ThreeChoiceQuizSelectionItemB;
+import study02.quiz_game.domain.answer.ThreeChoiceQuizSelectionItemC;
+import study02.quiz_game.domain.answer.ThreeChoiceQuizSelectionItemValue;
+import study02.quiz_game.domain.question.Question;
+import study02.quiz_game.domain.question.ThreeChoiceQuizQuestion;
 
 public class ThreeChoiceQuestionRegistrationRequest {
     @Getter
@@ -18,36 +20,47 @@ public class ThreeChoiceQuestionRegistrationRequest {
     private String threeChoiceQuestion;
     @Getter
     @Setter
-    private String threeChoiceA;
+    private String threeChoiceSelectionItemA;
     @Getter
     @Setter
-    private String threeChoiceB;
+    private String threeChoiceSelectionItemB;
     @Getter
     @Setter
-    private String threeChoiceC;
+    private String threeChoiceSelectionItemC;
     @Getter
     @Setter
-    private String answerChoice;
+    private String answerChoiceSelectionItem;
     @Getter
     @Setter
     private String explanation;
 
     public ThreeChoiceQuestionInfomation create() {
 
-        List<ThreeChoiceQuizChoice> list = new ArrayList<>();
-        list.add(new ThreeChoiceQuizChoice(threeChoiceA));
-        list.add(new ThreeChoiceQuizChoice(threeChoiceB));
-        list.add(new ThreeChoiceQuizChoice(threeChoiceC));
+        CorrectAnswerJudgment correctAnswerJudgementA = (threeChoiceSelectionItemA.equals(answerChoiceSelectionItem)) ? CorrectAnswerJudgment.CORRECT_ANSWER : CorrectAnswerJudgment.INCORRECT_ANSWER;
+        CorrectAnswerJudgment correctAnswerJudgementB = (threeChoiceSelectionItemB.equals(answerChoiceSelectionItem)) ? CorrectAnswerJudgment.CORRECT_ANSWER : CorrectAnswerJudgment.INCORRECT_ANSWER;
+        CorrectAnswerJudgment correctAnswerJudgementC = (threeChoiceSelectionItemC.equals(answerChoiceSelectionItem)) ? CorrectAnswerJudgment.CORRECT_ANSWER : CorrectAnswerJudgment.INCORRECT_ANSWER;
 
         return new ThreeChoiceQuestionInfomation(
-                        new ThreeChoiceQuizQuestion(
-                                new Question(this.threeChoiceQuestion),
-                                list
+                new ThreeChoiceQuizQuestion(
+                        new Question(this.threeChoiceQuestion)
+                ),
+                new ThreeChoiceQuizAnswer(
+                        new ThreeChoiceQuizChoice(
+                                new ThreeChoiceQuizSelectionItemA(
+                                        new ThreeChoiceQuizSelectionItemValue(threeChoiceSelectionItemA),
+                                        correctAnswerJudgementA
+                                ),
+                                new ThreeChoiceQuizSelectionItemB(
+                                        new ThreeChoiceQuizSelectionItemValue(threeChoiceSelectionItemB),
+                                        correctAnswerJudgementB
+                                ),
+                                new ThreeChoiceQuizSelectionItemC(
+                                        new ThreeChoiceQuizSelectionItemValue(threeChoiceSelectionItemC),
+                                        correctAnswerJudgementC
+                                )
                         ),
-                        new ThreeChoiceQuizAnswer(
-                                new ThreeChoiceQuizChoice(answerChoice),
-                                new Explanation(explanation)
-                        )
+                        new Explanation(explanation)
+                )
         );
     }
 }

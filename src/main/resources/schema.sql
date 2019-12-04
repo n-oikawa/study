@@ -60,9 +60,11 @@ CREATE TABLE three_choice_quiz_event (
     three_choice_quiz_number INTEGER ,
     question VARCHAR ,
     three_choice_quiz_choice_a VARCHAR ,
+    correct_answer_judgement_a VARCHAR ,
     three_choice_quiz_choice_b VARCHAR ,
+    correct_answer_judgement_b VARCHAR ,
     three_choice_quiz_choice_c VARCHAR ,
-    connect_answer_choice VARCHAR ,
+    correct_answer_judgement_c VARCHAR ,
     explanation VARCHAR ,
     system_date DATETIME
 );

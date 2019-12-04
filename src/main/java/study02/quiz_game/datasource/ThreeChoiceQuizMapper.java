@@ -19,18 +19,22 @@ public interface ThreeChoiceQuizMapper {
                     "three_choice_quiz_number, " +
                     "question, " +
                     "three_choice_quiz_choice_a, " +
+                    "correct_answer_judgement_a, " +
                     "three_choice_quiz_choice_b, " +
+                    "correct_answer_judgement_b, " +
                     "three_choice_quiz_choice_c, " +
-                    "connect_answer_choice, " +
+                    "correct_answer_judgement_C, " +
                     "explanation, " +
                     "system_date" +
                     ") VALUES (" +
                     "#{threeChoiceQuizNumber}, " +
                     "#{question}, " +
                     "#{threeChoiceQuizChoiceA}, " +
+                    "#{correctAnswerJudgementA}, " +
                     "#{threeChoiceQuizChoiceB}, " +
+                    "#{correctAnswerJudgementB}, " +
                     "#{threeChoiceQuizChoiceC}, " +
-                    "#{connectAnswerChoice}, " +
+                    "#{correctAnswerJudgementC}, " +
                     "#{explanation}, " +
                     "sysdate" +
                     ")"
@@ -39,9 +43,11 @@ public interface ThreeChoiceQuizMapper {
             @Param("threeChoiceQuizNumber") Integer threeChoiceQuizNumber,
             @Param("question") String question,
             @Param("threeChoiceQuizChoiceA") String threeChoiceQuizChoiceA,
+            @Param("correctAnswerJudgementA") String correctAnswerJudgementA,
             @Param("threeChoiceQuizChoiceB") String threeChoiceQuizChoiceB,
+            @Param("correctAnswerJudgementB") String correctAnswerJudgementB,
             @Param("threeChoiceQuizChoiceC") String threeChoiceQuizChoiceC,
-            @Param("connectAnswerChoice") String connectAnswerChoice,
+            @Param("correctAnswerJudgementC") String correctAnswerJudgementC,
             @Param("explanation") String explanation
     );
 }
