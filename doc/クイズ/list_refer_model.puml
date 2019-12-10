@@ -1,0 +1,64 @@
+@startuml
+
+package domain {
+  class 三択クイズList {
+    - List<三択クイズ>
+    + 三択クイズ 三択クイズをランダムで一つ取得する()
+  }
+  class 三択クイズ情報 {
+  }
+
+  class "三択クイズ<Entity>" as 三択クイズ {
+    - 三択クイズ番号
+    - 三択クイズ情報
+    + static create(三択クイズ番号, 三択クイズ情報)
+  }
+
+  interface 三択クイズRepository {
+    + 三択クイズList 三択クイズ情報Listを取得する()
+  }
+
+  class 三択クイズ番号 {
+    - Integer
+  }
+    package question {
+        class 問題文 {
+            - String
+        }
+        三択問題 --> 問題文
+    }
+    package answer {
+        class 解説 {
+            - String
+        }
+        enum 正解判定 {
+            正解
+            不正解
+        }
+        class 選択項目値 {
+            - String
+        }
+        三択正解 --> 解説
+        三択正解 --> 選択肢
+        選択肢 --> 選択項目A
+        選択肢 --> 選択項目B
+        選択肢 --> 選択項目C
+        選択項目A --> 選択項目値
+        選択項目B --> 選択項目値
+        選択項目C --> 選択項目値
+        選択項目A --> 正解判定
+        選択項目B --> 正解判定
+        選択項目C --> 正解判定
+    }
+
+    三択クイズ --> 三択クイズ番号
+    三択クイズ --> 三択クイズ情報
+    三択クイズ情報 --> 三択問題
+    三択クイズ情報 --> 三択正解
+
+    三択クイズRepository --> 三択クイズList
+    三択クイズList --> 三択クイズ
+
+}
+
+@enduml

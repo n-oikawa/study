@@ -4,5 +4,7 @@ public interface IThreeChoiceQuizRepository {
 
     public ThreeChoiceQuizNumber assignment();
 
+    public ThreeChoiceQuizList refer();
+
     void register(ThreeChoiceQuiz threeChoiceQuiz);
 }
